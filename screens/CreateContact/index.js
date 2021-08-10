@@ -31,48 +31,56 @@ const CreateContact = ()=>{
      }
 
      const onSubmit = () => {
+          // createContact(form)(contactsDispatch)(()=>{
+          //      navigate(CONTACT_LIST)
+          // })
+
+        createContact({...form, contactPicture: localFile})(contactsDispatch)(
+          () => {
+            navigate(CONTACT_LIST);
+          },
+        );
       
-      
-          if (params?.contact) {
-            if (localFile?.size) {
-              setIsUploading(true);
-              uploadImage(localFile)((url) => {
-                setIsUploading(false);
-                editContact(
-                  {...form, contactPicture: url},
-                  params?.contact.id,
-                )(contactsDispatch)((item) => {
-                  navigate(CONTACT_DETAIL, {item});
-                });
-              })((err) => {
-                console.log('err :>> ', err);
-                setIsUploading(false);
-              });
-            } else {
-              editContact(form, params?.contact.id)(contactsDispatch)((item) => {
-                navigate(CONTACT_DETAIL, {item});
-              });
-            }
-          } else {
-            if (localFile?.size) {
-              setIsUploading(true);
-              uploadImage(localFile)((url) => {
-                console.log(url);
-                setIsUploading(false);
-                createContact({...form, contactPicture: url})(contactsDispatch)(
-                  () => {
-                    navigate(CONTACT_LIST);
-                  },
-                );
-              })((err) => {
-                setIsUploading(false);
-              });
-            } else {
-              createContact(form)(contactsDispatch)(() => {
-                navigate(CONTACT_LIST);
-              });
-            }
-          }
+          // if (params?.contact) {
+          //   if (localFile?.size) {
+          //     setIsUploading(true);
+          //     uploadImage(localFile)((url) => {
+          //       setIsUploading(false);
+          //       editContact(
+          //         {...form, contactPicture: url},
+          //         params?.contact.id,
+          //       )(contactsDispatch)((item) => {
+          //         navigate(CONTACT_DETAIL, {item});
+          //       });
+          //     })((err) => {
+          //       console.log('err :>> ', err);
+          //       setIsUploading(false);
+          //     });
+          //   } else {
+          //     editContact(form, params?.contact.id)(contactsDispatch)((item) => {
+          //       navigate(CONTACT_DETAIL, {item});
+          //     });
+          //   }
+          // } else {
+          //   if (localFile?.size) {
+          //     setIsUploading(true);
+          //     uploadImage(localFile)((url) => {
+          //       console.log(url);
+          //       setIsUploading(false);
+          //       createContact({...form, contactPicture: url})(contactsDispatch)(
+          //         () => {
+          //           navigate(CONTACT_LIST);
+          //         },
+          //       );
+          //     })((err) => {
+          //       setIsUploading(false);
+          //     });
+          //   } else {
+          //     createContact(form)(contactsDispatch)(() => {
+          //       navigate(CONTACT_LIST);
+          //     });
+          //   }
+          // }
         };
 
      const closeSheet = ()=>{
