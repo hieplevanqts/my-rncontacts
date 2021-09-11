@@ -4,8 +4,8 @@ import colors from "../../../assets/themes/colors";
 const styles = StyleSheet.create({
      textInput: {
           flex: 1,
-          width:"100%"
-
+          width:"100%",
+          color: "#000"
      },
      wrapper: {
           height: 42,

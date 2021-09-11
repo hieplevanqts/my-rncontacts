@@ -6,11 +6,13 @@ import {navigate} from './../navigation/SlideMenu/RootNavigator';
 
 
 let headers = {
-  
+  // 'Content-Type': 'multipart/form-data',
 }
 const axiosInstance = axios.create({
      baseURL : envs.BACKEND_URL,
-     headers,
+     processData: false,
+     mimeType: "multipart/form-data",
+     contentType: false,
 });
 axiosInstance.interceptors.request.use(
      async(config)=>{
@@ -24,6 +26,8 @@ axiosInstance.interceptors.request.use(
           return Promise.reject(errors)
      }
 );
+
+
 
 
 axiosInstance.interceptors.response.use(

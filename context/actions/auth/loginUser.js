@@ -19,7 +19,7 @@ export default ({
           username, 
      }).then((res)=>{
           console.log(res.data)
-          AsyncStorage.setItem("token", res.data.token)
+          AsyncStorage.setItem("token", res.data.access_token)
           AsyncStorage.setItem("user", JSON.stringify(res.data.user))
           dispatch({
                type: LOGIN_SUCCESS,

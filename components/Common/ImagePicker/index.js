@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import RBSheet from "react-native-raw-bottom-sheet";
-// import { Entypo } from '@expo/vector-icons';
 import styles from './styles';
 import colors from '../../../assets/themes/colors';
 import ImagePickerCropper from 'react-native-image-crop-picker';
-// import * as ImagePicke from 'expo-image-picker';
+import Icon from './../../Common/Icon';
 
 
 
@@ -16,7 +15,7 @@ const ImagePicker = React.forwardRef(({onFileSelected}, ref) => {
      const options = [
           {
                name:"Take from camera", 
-               // icon : <Entypo name="camera" size={24} color={colors.grey} />,
+               icon : <Icon color={colors.grey} size={21} name="camera" />,
                onPress: () => {
                     ImagePickerCropper.openCamera({
                       width: 300,
@@ -32,7 +31,7 @@ const ImagePicker = React.forwardRef(({onFileSelected}, ref) => {
           },
           {
                name:"Choose from gallery", 
-               // icon : <Entypo name="image" size={24} color={colors.grey} />,
+               icon : <Icon name="image" color={colors.grey} size={21} />,
                onPress: () => {
                     ImagePickerCropper.openPicker({
                       width: 300,

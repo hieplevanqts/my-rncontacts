@@ -4,7 +4,8 @@ import colors from '../../assets/themes/colors';
 import Message from './../Common/Message/index';
 import styles from "./styles";
 import { useNavigation } from '@react-navigation/native';
-import { CREATE_CONTACT } from './../../constants/routeNames';
+import { CONTACT_DETAIL, CREATE_CONTACT } from './../../constants/routeNames';
+import Icon from './../Common/Icon';
 
 
 
@@ -26,7 +27,9 @@ const ContactsComponent = ({ sortBy, data, loading, setModalVisible }) => {
                country_code
           } = item;
 
-          return (<TouchableOpacity style={styles.itemContainer}>
+          return (<TouchableOpacity style={styles.itemContainer} onPress={()=>{
+               navigate(CONTACT_DETAIL, {item})
+          }}>
                <View style={styles.item}>
                     {contact_picture ? (
                          <Image style={{ 
@@ -114,7 +117,7 @@ const ContactsComponent = ({ sortBy, data, loading, setModalVisible }) => {
                          navigate(CREATE_CONTACT);
                     }}
                >
-                    {/* <AntDesign name="plus" size={30} color="white" /> */}
+                    <Icon name="plus" size={21} color={colors.white} />
                </TouchableOpacity>
           </>
      );

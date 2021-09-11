@@ -6,7 +6,7 @@ import Input from './../Common/Input/index';
 import CustomButton from './../Common/CustomButton/index';
 import CountryPicker from 'react-native-country-picker-modal';
 import { DEFAULT_IMAGE_URI } from './../../constants/general';
-import colors from '../../assets/themes/colors';
+import colors from './../../assets/themes/colors';
 import ImagePicker from '../Common/ImagePicker';
 
 

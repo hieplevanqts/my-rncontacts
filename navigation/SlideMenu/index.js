@@ -12,14 +12,14 @@ import {SETTINGS} from '../../constants/routeNames';
 import Container from '../../components/Common/container'
 import logoutUser from '../../context/actions/auth/logoutUser'
 import styles from './styles'
-import Icon from './../../components/Common/Icon/index';
+import Icon from './../../components/Common/Icon';
 
 
 
 const SideMenu = ({navigation, authDispatch}) => {
 
      const handleLogout = ()=>{
-          // navigation.toggleDrawer();
+          navigation.toggleDrawer();
           Alert.alert('Logout', 'Are you sure you want to logout ?', [
                {
                     text: 'Cancel',
@@ -44,7 +44,7 @@ const SideMenu = ({navigation, authDispatch}) => {
                },
           },
           {
-               // icon: <Feather name="log-out" size={24} style={{ padding:10 }} color="black" />, 
+               icon: <Icon type="material" size={17} name="logout" />, 
                name: "Logout",
                onPress: handleLogout,
           },
